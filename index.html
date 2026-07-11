@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+<head><!-- Conexión de la PWA (BETSGOL ESP) -->
+<link rel="manifest" href="/Club-betsgol/manifest.json">
+<link rel="apple-touch-icon" href="/Club-betsgol/icon-192.png">
+<meta name="theme-color" content="#0b1712">
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/Club-betsgol/sw.js')
+        .then(reg => console.log('¡BETSGOL ESP cargada como App!', reg))
+        .catch(err => console.log('Error al cargar la App', err));
+    });
+  }
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>BETSGOL ESP — Analíticas de fútbol</title>
